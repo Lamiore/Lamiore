@@ -22,6 +22,14 @@ jobs:
         with:
           node-version: "20"
 
+      # Runs before snk: its Docker container creates dist/ as root, which would
+      # make the directory unwritable for this step.
+      - name: Generate language chart
+        run: node scripts/langs.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USER: ${{ github.repository_owner }}
+
       - name: Generate snake animation
         uses: Platane/snk@v3.5.0
         with:
@@ -29,12 +37,6 @@ jobs:
           outputs: |
             dist/snake.svg?palette=github-light
             dist/snake-dark.svg?palette=github-dark
-
-      - name: Generate language chart
-        run: node scripts/langs.mjs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_USER: ${{ github.repository_owner }}
 
       - name: Publish to output branch
         uses: crazy-max/ghaction-github-pages@v5.0.0
