@@ -1,4 +1,4 @@
-name: Generate contribution snake
+name: Generate profile graphics
 
 on:
   schedule:
@@ -16,6 +16,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Generate snake animation
         uses: Platane/snk@v3.5.0
         with:
@@ -23,6 +29,12 @@ jobs:
           outputs: |
             dist/snake.svg?palette=github-light
             dist/snake-dark.svg?palette=github-dark
+
+      - name: Generate language chart
+        run: node scripts/langs.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USER: ${{ github.repository_owner }}
 
       - name: Publish to output branch
         uses: crazy-max/ghaction-github-pages@v5.0.0
