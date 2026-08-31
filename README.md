@@ -36,10 +36,11 @@
 
 ### Languages
 
-<p align="center">
-  <img alt="Top languages by repo" height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Lamiore&theme=tokyonight">
-  <img alt="Top languages by commit" height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Lamiore&theme=tokyonight">
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Lamiore/Lamiore/output/langs-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Lamiore/Lamiore/output/langs.svg">
+  <img alt="Most used languages: TypeScript, Dart, Python, JavaScript, CSS, HTML" width="480" src="https://raw.githubusercontent.com/Lamiore/Lamiore/output/langs.svg">
+</picture>
 
 ### Contributions
 
