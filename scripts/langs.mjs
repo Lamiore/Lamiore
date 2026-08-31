@@ -38,24 +38,16 @@ const render = ({ fg, muted, track }) => {
     return { name, pct, w, y, i, color: v.color || muted };
   });
 
-  // Animate transform, not width: Chromium's SVG-as-image lifecycle does not drive
-  // layout for geometry properties, so an animated `width` strands at zero inside
-  // GitHub's <img> embed. Stagger lives inside the keyframes rather than in
-  // animation-delay, and scaleX(0) is never an inline style -- so if the animation
-  // is dropped entirely, the bar still renders at its full attribute width.
-  const keyframes = bars
-    .map((b) => {
-      const start = b.i * 7;
-      return `@keyframes g${b.i}{0%,${start}%{transform:scaleX(0)}${start + 50}%,100%{transform:scaleX(1)}}`;
-    })
-    .join("");
+  // No CSS animation on the bars: GitHub renders README SVGs as <img>, where the
+  // animation timeline does not advance -- it paints frame 0 and stops. Anything
+  // that starts hidden (width:0, scaleX(0)) therefore stays hidden. A correct
+  // static chart beats an empty animated one.
 
   const rows = bars
     .map(
       (b) => `<text x="${PAD}" y="${b.y + 11}" class="n">${b.name}</text>
 <rect x="${BAR_X}" y="${b.y + 2}" width="${BAR_W}" height="10" rx="5" fill="${track}"/>
-<rect x="${BAR_X}" y="${b.y + 2}" width="${b.w}" height="10" rx="5" fill="${b.color}"
- style="transform-box:fill-box;transform-origin:left center;animation:g${b.i} 1.6s cubic-bezier(.22,.61,.36,1) forwards"/>
+<rect x="${BAR_X}" y="${b.y + 2}" width="${b.w}" height="10" rx="5" fill="${b.color}"/>
 <text x="${W - PAD}" y="${b.y + 11}" class="p">${b.pct.toFixed(1)}%</text>`
     )
     .join("\n");
@@ -66,7 +58,6 @@ text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ubuntu,sans-serif}
 .h{font-size:15px;font-weight:600;fill:${fg}}
 .n{font-size:12px;fill:${fg}}
 .p{font-size:12px;fill:${muted};text-anchor:end}
-${keyframes}
 </style>
 <text x="${PAD}" y="${PAD + 12}" class="h">Most used languages</text>
 ${rows}
