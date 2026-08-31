@@ -1,7 +1,7 @@
 <h1 align="center">Lam</h1>
 
 <p align="center">
-  Full-stack developer. I build web and mobile products, and wire them to computer vision — live underwater cameras, reef surveys, clinical imaging.
+  <img alt="Full-stack developer. Next.js, Flutter, Firebase. Computer vision, underwater." src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=2800&pause=700&color=7AA2F7&center=true&vCenter=true&width=520&height=45&lines=Full-stack+developer;Next.js%2C+Flutter%2C+Firebase;Computer+vision%2C+underwater">
 </p>
 
 <p align="center">
@@ -40,3 +40,11 @@
   <img alt="Top languages by repo" height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Lamiore&theme=tokyonight">
   <img alt="Top languages by commit" height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Lamiore&theme=tokyonight">
 </p>
+
+### Contributions
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Lamiore/Lamiore/output/snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Lamiore/Lamiore/output/snake.svg">
+  <img alt="A snake eating my GitHub contribution graph" src="https://raw.githubusercontent.com/Lamiore/Lamiore/output/snake.svg">
+</picture>
