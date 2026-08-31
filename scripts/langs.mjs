@@ -38,12 +38,15 @@ const render = ({ fg, muted, track }) => {
     return { name, pct, w, y, i, color: v.color || muted };
   });
 
-  // Stagger lives inside the keyframes (not animation-delay) so fill-mode can stay
-  // "forwards": a renderer that ignores CSS animation still shows the full bar.
+  // Animate transform, not width: Chromium's SVG-as-image lifecycle does not drive
+  // layout for geometry properties, so an animated `width` strands at zero inside
+  // GitHub's <img> embed. Stagger lives inside the keyframes rather than in
+  // animation-delay, and scaleX(0) is never an inline style -- so if the animation
+  // is dropped entirely, the bar still renders at its full attribute width.
   const keyframes = bars
     .map((b) => {
       const start = b.i * 7;
-      return `@keyframes g${b.i}{0%,${start}%{width:0}${start + 50}%,100%{width:${b.w}px}}`;
+      return `@keyframes g${b.i}{0%,${start}%{transform:scaleX(0)}${start + 50}%,100%{transform:scaleX(1)}}`;
     })
     .join("");
 
@@ -52,7 +55,7 @@ const render = ({ fg, muted, track }) => {
       (b) => `<text x="${PAD}" y="${b.y + 11}" class="n">${b.name}</text>
 <rect x="${BAR_X}" y="${b.y + 2}" width="${BAR_W}" height="10" rx="5" fill="${track}"/>
 <rect x="${BAR_X}" y="${b.y + 2}" width="${b.w}" height="10" rx="5" fill="${b.color}"
- style="animation:g${b.i} 1.6s cubic-bezier(.22,.61,.36,1) forwards"/>
+ style="transform-box:fill-box;transform-origin:left center;animation:g${b.i} 1.6s cubic-bezier(.22,.61,.36,1) forwards"/>
 <text x="${W - PAD}" y="${b.y + 11}" class="p">${b.pct.toFixed(1)}%</text>`
     )
     .join("\n");
