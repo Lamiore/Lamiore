@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="244" viewBox="0 0 480 244" role="img" aria-label="Most used languages">
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ubuntu,sans-serif}
+.h{font-size:15px;font-weight:600;fill:#c9d1d9}
+.n{font-size:12px;fill:#c9d1d9}
+.p{font-size:12px;fill:#8b949e;text-anchor:end}
+</style>
+<text x="20" y="32" class="h">Most used languages</text>
+<text x="20" y="55" class="n">TypeScript</text>
+<rect x="118" y="46" width="292" height="10" rx="5" fill="#30363d"/>
+<rect x="118" y="46" width="163.4" height="10" rx="5" fill="#3178c6"/>
+<text x="460" y="55" class="p">56.0%</text>
+<text x="20" y="85" class="n">Dart</text>
+<rect x="118" y="76" width="292" height="10" rx="5" fill="#30363d"/>
+<rect x="118" y="76" width="56.9" height="10" rx="5" fill="#00B4AB"/>
+<text x="460" y="85" class="p">19.5%</text>
+<text x="20" y="115" class="n">Python</text>
+<rect x="118" y="106" width="292" height="10" rx="5" fill="#30363d"/>
+<rect x="118" y="106" width="33.9" height="10" rx="5" fill="#3572A5"/>
+<text x="460" y="115" class="p">11.6%</text>
+<text x="20" y="145" class="n">JavaScript</text>
+<rect x="118" y="136" width="292" height="10" rx="5" fill="#30363d"/>
+<rect x="118" y="136" width="17.1" height="10" rx="5" fill="#f1e05a"/>
+<text x="460" y="145" class="p">5.9%</text>
+<text x="20" y="175" class="n">CSS</text>
+<rect x="118" y="166" width="292" height="10" rx="5" fill="#30363d"/>
+<rect x="118" y="166" width="12.2" height="10" rx="5" fill="#663399"/>
+<text x="460" y="175" class="p">4.2%</text>
+<text x="20" y="205" class="n">HTML</text>
+<rect x="118" y="196" width="292" height="10" rx="5" fill="#30363d"/>
+<rect x="118" y="196" width="8.5" height="10" rx="5" fill="#e34c26"/>
+<text x="460" y="205" class="p">2.9%</text>
+</svg>
