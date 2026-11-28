@@ -1,4 +1,4 @@
-<h1 align="center">Lam</h1>
+<h1 align="center">Lamint</h1>
 
 <p align="center">
   <img alt="Full-stack developer. Next.js, Flutter, Firebase. Computer vision, underwater." src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=2800&pause=700&color=7AA2F7&center=true&vCenter=true&width=520&height=45&lines=Full-stack+developer;Next.js%2C+Flutter%2C+Firebase;Computer+vision%2C+underwater">
